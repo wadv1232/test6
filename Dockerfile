@@ -4,7 +4,8 @@ LABEL maintainer "V2Fly Community <dev@v2fly.org>"
 WORKDIR /root
 ARG TARGETPLATFORM
 ARG TAG
-
+COPY v2ray.sh /root/v2ray.sh
+COPY config.json /etc/v2ray/config.json
 RUN set -ex \
 	&& apt-get update \
 	&& apt-get install -y openssh-server tzdata openssl ca-certificates unzip wget curl \
@@ -21,8 +22,6 @@ RUN set -ex \
 	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 EXPOSE 22
 EXPOSE 8888
-COPY v2ray.sh /root/v2ray.sh
-COPY config.json /etc/v2ray/config.json
 ENV PATH /usr/bin/v2ray:$PATH
 ENV PORT 8888
 ENV TZ=Asia/Shanghai
