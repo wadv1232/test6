@@ -1,0 +1,29 @@
+{
+   "log":{
+      "loglevel":"warning",
+      "access":"/var/log/v2ray/access.log",
+      "error":"/var/log/v2ray/error.log"
+   },
+   "inbounds":[
+      {
+         "port":PORT,
+         "protocol":"vmess",
+         "settings":{
+            "clients":[
+               {
+                  "id":"UUID",
+                  "alterId":4
+               }
+            ]
+         }
+      }
+   ],
+   "outbounds":[
+      {
+         "protocol":"freedom",
+         "settings":{
+
+         }
+      }
+   ]
+}
