@@ -31,27 +31,14 @@ fi
 
 # Download files
 V2RAY_FILE="v2ray-linux-${ARCH}.zip"
-DGST_FILE="v2ray-linux-${ARCH}.zip.dgst"
 echo "Downloading binary file: ${V2RAY_FILE}"
-echo "Downloading binary file: ${DGST_FILE}"
 
 wget -O ${PWD}/v2ray.zip https://github.com/v2fly/v2ray-core/releases/download/v4.45.2/${V2RAY_FILE} > /dev/null 2>&1
-wget -O ${PWD}/v2ray.zip.dgst https://github.com/v2fly/v2ray-core/releases/download/v4.45.2/${DGST_FILE} > /dev/null 2>&1
 
 if [ $? -ne 0 ]; then
-    echo "Error: Failed to download binary file: ${V2RAY_FILE} ${DGST_FILE}" && exit 1
+    echo "Error: Failed to download binary file: ${V2RAY_FILE}" && exit 1
 fi
-echo "Download binary file: ${V2RAY_FILE} ${DGST_FILE} completed"
-
-# Check SHA512
-LOCAL=$(openssl dgst -sha512 v2ray.zip | sed 's/([^)]*)//g')
-STR=$(cat v2ray.zip.dgst | grep 'SHA512' | head -n1)
-
-if [ "${LOCAL}" = "${STR}" ]; then
-    echo " Check passed" && rm -fv v2ray.zip.dgst
-else
-    echo " Check have not passed yet " && exit 1
-fi
+echo "Download binary file: ${V2RAY_FILE} completed"
 
 # Prepare
 echo "Prepare to use"
