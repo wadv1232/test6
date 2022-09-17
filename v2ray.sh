@@ -65,4 +65,3 @@ echo starting v2ray platform
 echo starting with UUID:$UUID
 echo listening at 0.0.0.0:$PORT
 echo "Done"
-exec "$@"
