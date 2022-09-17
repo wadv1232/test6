@@ -12,7 +12,7 @@ RUN set -ex \
 	&& mkdir /var/run/sshd \
 	&& echo 'root:root' |chpasswd \
 	&& passwd --expire root \
-	&& mkdir /root/.ssh
+	&& mkdir /root/.ssh \
 	&& mkdir -p /etc/v2ray /usr/local/share/v2ray /var/log/v2ray \
 	&& sed -ri 's/^#?PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config \
 	&& sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config \
