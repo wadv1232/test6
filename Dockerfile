@@ -14,14 +14,14 @@ RUN set -ex \
 EXPOSE 22
 CMD ["/usr/sbin/sshd", "-D"]
 
-FROM v2fly/v2fly-core
-COPY config.json /etc/v2ray/config.json
-COPY v2ray.sh /v2ray.sh
-RUN chmod +x /v2ray.sh
-ENV PATH /usr/bin/v2ray:$PATH
+FROM teddysun/xray
+COPY config.json /etc/xray/config.json
+COPY xray.sh /xray.sh
+RUN chmod +x /xray.sh
+ENV PATH /usr/bin/xray:$PATH
 ENV PORT 8888
-WORKDIR /etc/v2ray
-ENTRYPOINT ["/v2ray.sh"]
+WORKDIR /etc/xray
+ENTRYPOINT ["/xray.sh"]
 
 EXPOSE 8888
-CMD ["v2ray", "-config=/etc/v2ray/config.json"]
+CMD ["xray", "-config=/etc/xray/config.json"]
