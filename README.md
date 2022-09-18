@@ -1,3 +1,3 @@
-:whale: Dockerfiles for [V2Ray](https://github.com/v2fly/v2ray-core)
+:whale: Dockerfiles for [Xray](https://github.com/XTLS/Xray-core)
 
-based on [v2fly/docker](https://github.com/v2fly/docker)
+based on [xray/docker](hub.docker.com/r/teddysun/xray)
