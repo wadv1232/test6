@@ -7,10 +7,10 @@ fi
 UUID=$(cat UUID)
 
 # Set config.json
-sed -i "s/PORT/$PORT/g" /etc/v2ray/config.json
-sed -i "s/UUID/$UUID/g" /etc/v2ray/config.json
+sed -i "s/PORT/$PORT/g" /etc/xray/config.json
+sed -i "s/UUID/$UUID/g" /etc/xray/config.json
 
-echo starting v2ray platform
+echo starting xray platform
 echo starting with UUID:$UUID
 echo listening at 0.0.0.0:$PORT
 
