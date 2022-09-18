@@ -15,3 +15,4 @@ echo starting with UUID:$UUID
 echo listening at 0.0.0.0:$PORT
 
 exec "$@"
+
